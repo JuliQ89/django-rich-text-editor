@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from .models import ExampleModel
-from rich_text_editor.widgets import RichTextEditorWidget
+from django_rich_text_editor.rich_text_editor.widgets import RichTextEditorWidget
 
 
 class ExampleAdminForm(forms.ModelForm):

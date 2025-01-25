@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "rich_text_editor/static")
+    os.path.join(BASE_DIR, "django_rich_text_editor/rich_text_editor/static")
 ]
 
 # Default primary key field type

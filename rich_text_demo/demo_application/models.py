@@ -1,5 +1,5 @@
 from django.db import models
-from rich_text_editor.fields import RichTextField
+from django_rich_text_editor.rich_text_editor.fields import RichTextField
 
 # Create your models here.
 class ExampleModel(models.Model):
