@@ -1,0 +1,84 @@
+.rich-text-container * {
+  box-sizing: border-box;
+}
+
+.rich-text-container {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 1360px;
+  border-radius: 2px;
+}
+
+.rich-text-toolbar {
+  padding: 0.5rem 0.25rem;
+  border: 1px solid #ccced1;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.rich-text-toolbar > button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 500;
+  min-width: fit-content;
+  min-height: fit-content;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.rich-text-toolbar > button:hover {
+  outline: none;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+.rich-text-toolbar > button.btn-active {
+  color: #2977ff;
+  background-color: #dbecff;
+}
+
+.rich-text-main {
+  border: 1px solid #ccced1;
+  max-height: 600px;
+  overflow-y: auto;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.rich-text-main > div {
+  padding: 0.75rem;
+  resize: none;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: black;
+  min-height: 225px;
+}
+
+.rich-text-main > div :where(ul, ol) {
+  margin: 0px !important;
+  padding: 0px !important;
+  color: black;
+  list-style-type: auto;
+}
+
+.rich-text-main > div li {
+  list-style-position: inside !important;
+}
+
+.rich-text-main > div ul li {
+  list-style-type: disc !important;
+}

@@ -1,0 +1,61 @@
+{% load static %}
+
+<div class="rich-text-container">
+  <header class="rich-text-toolbar">
+    {% if 'bold' in configs.toolbar.items %}
+    <button type="button" id="toolbar-bold">
+      <i class="ri-bold"></i>
+    </button>
+    {% endif %} {% if 'italic' in configs.toolbar.items %}
+    <button type="button" id="toolbar-italic"><i class="ri-italic"></i></button>
+    {% endif %} {% if 'underline' in configs.toolbar.items %}
+    <button type="button" id="toolbar-underline">
+      <i class="ri-underline"></i>
+    </button>
+    {% endif %} {% if 'strike' in configs.toolbar.items %}
+    <button type="button" id="toolbar-strike">
+      <i class="ri-strikethrough"></i>
+    </button>
+    {% endif %} {% if 'superscript' in configs.toolbar.items %}
+    <button type="button" id="toolbar-superscript">
+      <i class="ri-superscript"></i>
+    </button>
+    {% endif %} {% if 'subscript' in configs.toolbar.items %}
+    <button type="button" id="toolbar-subscript">
+      <i class="ri-subscript"></i>
+    </button>
+    {% endif %} {% if 'unordered' in configs.toolbar.items %}
+    <button type="button" id="toolbar-list-unordered">
+      <i class="ri-list-unordered"></i>
+    </button>
+    {% endif %} {% if 'ordered' in configs.toolbar.items %}
+    <button type="button" id="toolbar-list-ordered">
+      <i class="ri-list-ordered-2"></i>
+    </button>
+    {% endif %} {% if 'alignLeft' in configs.toolbar.items %}
+    <button type="button" id="toolbar-align-left">
+      <i class="ri-align-left"></i>
+    </button>
+    {% endif %} {% if 'alignCenter' in configs.toolbar.items %}
+    <button type="button" id="toolbar-align-center">
+      <i class="ri-align-center"></i>
+    </button>
+    {% endif %} {% if 'alignRight' in configs.toolbar.items %}
+    <button type="button" id="toolbar-align-right">
+      <i class="ri-align-right"></i>
+    </button>
+    {% endif %}
+  </header>
+  <main class="rich-text-main">
+    <div
+      id="rich-text-editor"
+      class="rich-text-field"
+      name="editor-{{ widget.name }}"
+      contenteditable="true"
+    >
+      {% if widget.value == None %} Type your content here! {% else %}
+      {{widget.value | safe }} {% endif %}
+    </div>
+    <input type="hidden" name="content" id="rich-text-input" />
+  </main>
+</div>
