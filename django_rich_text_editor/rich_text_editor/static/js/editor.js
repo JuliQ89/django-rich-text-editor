@@ -9,6 +9,9 @@ const init = () => {
   const toolbarStrikeBtn = document.getElementById("toolbar-strike");
   const toolbarSuperscriptBtn = document.getElementById("toolbar-superscript");
   const toolbarSubscriptBtn = document.getElementById("toolbar-subscript");
+  const toolbarRemoveFormatBtn = document.getElementById(
+    "toolbar-remove-format"
+  );
   const toolbarListUnorderedBtn = document.getElementById(
     "toolbar-list-unordered"
   );
@@ -16,6 +19,17 @@ const init = () => {
   const toolbarAlignLeftBtn = document.getElementById("toolbar-align-left");
   const toolbarAlignCenterBtn = document.getElementById("toolbar-align-center");
   const toolbarAlignRightBtn = document.getElementById("toolbar-align-right");
+  const toolbarOutdentBtn = document.getElementById("toolbar-outdent");
+  const toolbarIndentBtn = document.getElementById("toolbar-indent");
+  const toolbarUndoBtn = document.getElementById("toolbar-undo");
+  const toolbarRedoBtn = document.getElementById("toolbar-redo");
+  const editorDropdownDisplay = document.getElementById(
+    "editor-dropdown-display"
+  );
+  const editorDropdownOptions = document.getElementById(
+    "editor-dropdown-options"
+  );
+  const editorFontsizeBtns = document.querySelectorAll(".editor-fontsize-btn");
   let editorContent = richTextEditor.innerHTML;
   hiddenInput.value = editorContent;
 
@@ -41,46 +55,43 @@ const init = () => {
     checkCommandState("justifyRight", toolbarAlignRightBtn);
   };
 
-  const execCommand = (command) => {
-    document.execCommand(command);
+  const execCommand = (command, params = []) => {
+    document.execCommand(command, false, ...params);
     checkBtnsByCommandState();
   };
 
   toolbarBoldBtn.addEventListener("click", () => execCommand("bold"));
-
   toolbarItalicBtn.addEventListener("click", () => execCommand("italic"));
-
   toolbarUnderlineBtn.addEventListener("click", () => execCommand("underline"));
-
   toolbarStrikeBtn.addEventListener("click", () =>
-    execCommand("strikeThrough")
+    execCommand("strikeThrough", null)
   );
-
   toolbarSuperscriptBtn.addEventListener("click", () =>
     execCommand("superscript")
   );
-
   toolbarSubscriptBtn.addEventListener("click", () => execCommand("subscript"));
-
+  toolbarRemoveFormatBtn.addEventListener("click", () =>
+    execCommand("removeFormat")
+  );
   toolbarListOrderedBtn.addEventListener("click", () =>
     execCommand("insertOrderedList")
   );
-
   toolbarListUnorderedBtn.addEventListener("click", () =>
     execCommand("insertUnorderedList")
   );
-
   toolbarAlignLeftBtn.addEventListener("click", () =>
     execCommand("justifyLeft")
   );
-
   toolbarAlignCenterBtn.addEventListener("click", () =>
     execCommand("justifyCenter")
   );
-
   toolbarAlignRightBtn.addEventListener("click", () =>
     execCommand("justifyRight")
   );
+  toolbarOutdentBtn.addEventListener("click", () => execCommand("outdent"));
+  toolbarIndentBtn.addEventListener("click", () => execCommand("indent"));
+  toolbarUndoBtn.addEventListener("click", () => execCommand("undo"));
+  toolbarRedoBtn.addEventListener("click", () => execCommand("redo"));
 
   richTextEditor.addEventListener("input", () => {
     hiddenInput.value = richTextEditor.innerHTML;
@@ -88,6 +99,18 @@ const init = () => {
 
   richTextEditor.addEventListener("keyup", checkBtnsByCommandState);
   richTextEditor.addEventListener("mouseup", checkBtnsByCommandState);
+
+  editorDropdownDisplay.addEventListener("click", () => {
+    editorDropdownDisplay.classList.toggle("opened");
+    editorDropdownOptions.classList.toggle("opened");
+  });
+
+  editorFontsizeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const size = Number(btn.getAttribute("data-size"));
+      execCommand("fontSize", [size]);
+    });
+  });
 };
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -4,7 +4,7 @@ from .models import ExampleModel
 from django_rich_text_editor.rich_text_editor.widgets import RichTextEditorWidget
 
 
-class ExampleAdminForm(forms.ModelForm):
+class ExampleModelForm(forms.ModelForm):
     class Meta:
         model = ExampleModel
         fields = "__all__"
@@ -12,9 +12,8 @@ class ExampleAdminForm(forms.ModelForm):
             'content': RichTextEditorWidget(), 
         }
 
-
 class ExampleModelAdmin(admin.ModelAdmin):
-    form = ExampleAdminForm
+    form = ExampleModelForm
 
 
 admin.site.register(ExampleModel, ExampleModelAdmin)

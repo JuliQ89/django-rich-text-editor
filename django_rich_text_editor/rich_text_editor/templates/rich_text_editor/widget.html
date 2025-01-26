@@ -12,7 +12,7 @@
     <button type="button" id="toolbar-underline">
       <i class="ri-underline"></i>
     </button>
-    {% endif %} {% if 'strike' in configs.toolbar.items %}
+    {% endif %} {% if 'strikeThrough' in configs.toolbar.items %}
     <button type="button" id="toolbar-strike">
       <i class="ri-strikethrough"></i>
     </button>
@@ -24,25 +24,74 @@
     <button type="button" id="toolbar-subscript">
       <i class="ri-subscript"></i>
     </button>
-    {% endif %} {% if 'unordered' in configs.toolbar.items %}
+    {% endif %} {% if 'fontSize' in configs.toolbar.items %}
+    <div class="editor-dropdown">
+      <div class="editor-dropdown-display" id="editor-dropdown-display">
+        <i class="ri-font-size"></i>
+      </div>
+      <div class="editor-dropdown-options" id="editor-dropdown-options">
+        <button type="button" class="editor-fontsize-btn" data-size="1">
+          <i class="ri-number-1"></i>
+        </button>
+        <button type="button" class="editor-fontsize-btn" data-size="2">
+          <i class="ri-number-2"></i>
+        </button>
+        <button type="button" class="editor-fontsize-btn" data-size="3">
+          <i class="ri-number-3"></i>
+        </button>
+        <button type="button" class="editor-fontsize-btn" data-size="4">
+          <i class="ri-number-4"></i>
+        </button>
+        <button type="button" class="editor-fontsize-btn" data-size="5">
+          <i class="ri-number-5"></i>
+        </button>
+        <button type="button" class="editor-fontsize-btn" data-size="6">
+          <i class="ri-number-6"></i>
+        </button>
+        <button type="button" class="editor-fontsize-btn" data-size="7">
+          <i class="ri-number-7"></i>
+        </button>
+      </div>
+    </div>
+    {% endif %} {% if 'removeFormat' in configs.toolbar.items %}
+    <button type="button" id="toolbar-remove-format">
+      <i class="ri-format-clear"></i>
+    </button>
+    {% endif %} {% if 'insertUnorderedList' in configs.toolbar.items %}
     <button type="button" id="toolbar-list-unordered">
       <i class="ri-list-unordered"></i>
     </button>
-    {% endif %} {% if 'ordered' in configs.toolbar.items %}
+    {% endif %} {% if 'insertOrderedList' in configs.toolbar.items %}
     <button type="button" id="toolbar-list-ordered">
       <i class="ri-list-ordered-2"></i>
     </button>
-    {% endif %} {% if 'alignLeft' in configs.toolbar.items %}
+    {% endif %} {% if 'justifyLeft' in configs.toolbar.items %}
     <button type="button" id="toolbar-align-left">
       <i class="ri-align-left"></i>
     </button>
-    {% endif %} {% if 'alignCenter' in configs.toolbar.items %}
+    {% endif %} {% if 'justifyCenter' in configs.toolbar.items %}
     <button type="button" id="toolbar-align-center">
       <i class="ri-align-center"></i>
     </button>
-    {% endif %} {% if 'alignRight' in configs.toolbar.items %}
+    {% endif %} {% if 'justifyRight' in configs.toolbar.items %}
     <button type="button" id="toolbar-align-right">
       <i class="ri-align-right"></i>
+    </button>
+    {% endif %} {% if 'outdent' in configs.toolbar.items %}
+    <button type="button" id="toolbar-outdent">
+      <i class="ri-indent-decrease"></i>
+    </button>
+    {% endif %} {% if 'indent' in configs.toolbar.items %}
+    <button type="button" id="toolbar-indent">
+      <i class="ri-indent-increase"></i>
+    </button>
+    {% endif %} {% if 'undo' in configs.toolbar.items %}
+    <button type="button" id="toolbar-undo">
+      <i class="ri-arrow-go-back-line"></i>
+    </button>
+    {% endif %} {% if 'redo' in configs.toolbar.items %}
+    <button type="button" id="toolbar-redo">
+      <i class="ri-arrow-go-forward-line"></i>
     </button>
     {% endif %}
   </header>
